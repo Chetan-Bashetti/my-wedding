@@ -284,16 +284,41 @@ function App() {
               <div className="event-icon">
                 <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="32" cy="32" r="28" fill="#FF6B6B" opacity="0.2" />
-                  <path d="M12 28L16 12L20 28H12Z" fill="#D4AF37" />
-                  <path d="M44 28L48 12L52 28H44Z" fill="#D4AF37" />
-                  <rect x="10" y="28" width="12" height="4" fill="#D4AF37" />
-                  <rect x="42" y="28" width="12" height="4" fill="#D4AF37" />
-                  <path d="M22 28L24 20L26 28H22Z" fill="#FF6B6B" />
-                  <path d="M38 28L40 20L42 28H38Z" fill="#FF6B6B" />
-                  <ellipse cx="32" cy="40" rx="18" ry="12" fill="#FF6B6B" opacity="0.3" />
-                  <path d="M20 32L32 48L44 32H20Z" fill="#D4AF37" />
-                  <path d="M28 36L32 44L36 36H28Z" fill="#FF6B6B" />
-                  <circle cx="32" cy="28" r="3" fill="#FFD700" />
+                  <ellipse cx="24" cy="18" rx="4" ry="5" fill="#FFB6A3" />
+                  <ellipse cx="40" cy="18" rx="4" ry="5" fill="#FFB6A3" />
+                  <path d="M20 18L20 30L28 30L28 18" fill="#FF6B9D" />
+                  <path d="M36 18L36 30L44 30L44 18" fill="#4A90E2" />
+                  <path d="M18 24Q24 20 30 24" stroke="#FFA500" strokeWidth="2" fill="none" />
+                  <circle cx="20" cy="23" r="1.5" fill="#FF6B9D" />
+                  <circle cx="24" cy="21" r="1.5" fill="#FFD700" />
+                  <circle cx="28" cy="23" r="1.5" fill="#FF8B9D" />
+                  <circle cx="22" cy="22" r="1.2" fill="#FFEB3B" />
+                  <circle cx="26" cy="22" r="1.2" fill="#FF6B9D" />
+                  <path d="M34 24Q40 20 46 24" stroke="#FFA500" strokeWidth="2" fill="none" />
+                  <circle cx="36" cy="23" r="1.5" fill="#FFD700" />
+                  <circle cx="40" cy="21" r="1.5" fill="#FF6B9D" />
+                  <circle cx="44" cy="23" r="1.5" fill="#FF8B9D" />
+                  <circle cx="38" cy="22" r="1.2" fill="#FFEB3B" />
+                  <circle cx="42" cy="22" r="1.2" fill="#FFD700" />
+                  <path d="M28 28L32 32L36 28" stroke="#FFB6A3" strokeWidth="2" fill="none" />
+                  <ellipse cx="32" cy="32" rx="8" ry="4" fill="none" stroke="#D4AF37" strokeWidth="2" />
+                  <circle cx="26" cy="32" r="1.5" fill="#FF6B9D" />
+                  <circle cx="29" cy="30" r="1.5" fill="#FFD700" />
+                  <circle cx="32" cy="29" r="1.8" fill="#FF8B9D" />
+                  <circle cx="35" cy="30" r="1.5" fill="#FFEB3B" />
+                  <circle cx="38" cy="32" r="1.5" fill="#FF6B9D" />
+                  <circle cx="28" cy="34" r="1.2" fill="#FFA500" />
+                  <circle cx="32" cy="35" r="1.2" fill="#FFD700" />
+                  <circle cx="36" cy="34" r="1.2" fill="#FF6B9D" />
+                  <path d="M30 42L32 38L34 42L32 40Z" fill="#FFA500" />
+                  <path d="M31 40L32 37L33 40Z" fill="#FFD700" />
+                  <ellipse cx="32" cy="43" rx="3" ry="1" fill="#8B4513" />
+                  <circle cx="16" cy="36" r="1.5" fill="#FF6B9D" opacity="0.6" />
+                  <circle cx="48" cy="36" r="1.5" fill="#FF6B9D" opacity="0.6" />
+                  <circle cx="20" cy="40" r="1.2" fill="#FFD700" opacity="0.5" />
+                  <circle cx="44" cy="40" r="1.2" fill="#FFD700" opacity="0.5" />
+                  <path d="M12 28C12 28 10 26 8 26C6 26 5 27 5 28C5 29 6 30 8 31L12 34L16 31C18 30 19 29 19 28C19 27 18 26 16 26C14 26 12 28 12 28Z" fill="#FF6B9D" opacity="0.4" />
+                  <path d="M52 28C52 28 50 26 48 26C46 26 45 27 45 28C45 29 46 30 48 31L52 34L56 31C58 30 59 29 59 28C59 27 58 26 56 26C54 26 52 28 52 28Z" fill="#FF6B9D" opacity="0.4" />
                 </svg>
               </div>
               <h3 className="event-name">Wedding Ceremony</h3>
