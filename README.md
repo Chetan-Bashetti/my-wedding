@@ -1,70 +1,162 @@
-# Getting Started with Create React App
+# 💑 Digital Wedding Invitation - Chetan & Neha
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A beautiful, responsive digital wedding invitation website with an Indian theme, featuring countdown timer, photo slideshow, and venue map.
 
-## Available Scripts
+## 🎨 Features
 
-In the project directory, you can run:
+- **Indian Theme Design** - Traditional elements with modern aesthetics
+- **Color Scheme** - Coral, Black, and White
+- **Mobile-First Responsive** - Works perfectly on all devices
+- **Countdown Timer** - Real-time countdown to the wedding day
+- **Photo Slideshow** - Automatic slideshow for pre-wedding photos
+- **Google Maps Integration** - Embedded map for easy venue location
+- **Beautiful Animations** - Smooth transitions and elegant effects
+- **SEO Optimized** - Proper meta tags for social media sharing
 
-### `npm start`
+## 📅 Wedding Details
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Groom**: Chetan (BE CSE, Software Developer)
+- **Bride**: Neha (BE EEE, Software Developer)
+- **Engagement & Haldi**: November 25, 2025
+- **Wedding**: November 26, 2025 at 12:15 PM
+- **Venue**: Shubamastu Colony, Vijayapura, Karnataka
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or higher)
+- npm or yarn
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository or navigate to the project directory:
+```bash
+cd digital-weeding-invite
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the development server:
+```bash
+npm start
+```
 
-### `npm run eject`
+4. Open your browser and visit:
+```
+http://localhost:3000
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📸 Adding Your Own Photos
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Replace the placeholder images in the `public/photos/` directory with your actual pre-wedding photos:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Add your photos (5 recommended) to `public/photos/`
+2. Name them as: `photo1.jpg`, `photo2.jpg`, `photo3.jpg`, etc.
+3. Supported formats: JPG, PNG, WebP
+4. Recommended size: 1920x1080px or similar aspect ratio
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🗺️ Updating the Venue Map
 
-## Learn More
+To update the Google Maps embed:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Go to [Google Maps](https://www.google.com/maps)
+2. Search for your venue
+3. Click "Share" → "Embed a map"
+4. Copy the iframe URL
+5. Update the `src` attribute in `src/App.js` (line ~234)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎨 Customization
 
-### Code Splitting
+### Colors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The color scheme is defined in `src/App.css`:
+```css
+--coral: #FF6B6B;
+--black: #1a1a1a;
+--white: #ffffff;
+```
 
-### Analyzing the Bundle Size
+### Content
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+All content can be modified in `src/App.js`:
+- Names, education, and profession
+- Event dates and times
+- Venue address
+- Welcome message
+- Sanskrit shloka
 
-### Making a Progressive Web App
+## 📱 Sections
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **Hero Section** - Main banner with couple names and date
+2. **Welcome Message** - Invitation message with Sanskrit blessing
+3. **Couple Section** - Details about bride and groom
+4. **Photo Slideshow** - Pre-wedding photo gallery
+5. **Countdown Timer** - Live countdown to the wedding
+6. **Events Timeline** - Engagement, Haldi, and Wedding details
+7. **Venue Section** - Address and embedded map
+8. **Footer** - Closing message
 
-### Advanced Configuration
+## 🏗️ Build for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To create a production build:
 
-### Deployment
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The optimized files will be in the `build/` directory.
 
-### `npm run build` fails to minify
+## 🌐 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You can deploy this website to:
+- **Netlify**: Drag and drop the `build` folder
+- **Vercel**: Connect your GitHub repository
+- **GitHub Pages**: Use `gh-pages` package
+- **Firebase Hosting**: Use Firebase CLI
+
+### Quick Deploy to Netlify
+
+1. Run `npm run build`
+2. Go to [Netlify](https://www.netlify.com/)
+3. Drag and drop the `build` folder
+4. Your site is live!
+
+## 📦 Technologies Used
+
+- React 19.2.0
+- Create React App
+- CSS3 with animations
+- Google Fonts (Lato, Great Vibes, Playfair Display)
+- Google Maps Embed API
+
+## 🎯 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+## 📝 License
+
+This project is free to use for personal wedding invitations.
+
+## 💖 About
+
+Created with love for Chetan & Neha's special day.
+
+---
+
+**Note**: This is a template. Please replace all placeholder images and personal information with your actual details before sharing with guests.
+
+## 🤝 Support
+
+For any questions or issues, feel free to reach out.
+
+---
+
+Made with ❤️ using React
