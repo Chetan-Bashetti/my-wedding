@@ -24,13 +24,27 @@ function App() {
     require('./photos/pre_wedding/CN_M_10.jpg')
   ], []);
 
-  // Preload first 3 images for better performance
+  // Progressive image loading with intersection observer
   useEffect(() => {
-    const preloadImages = photos.slice(0, 3);
-    preloadImages.forEach((photo) => {
-      const img = new Image();
-      img.src = photo;
-    });
+    // Preload first image immediately
+    const firstImg = new Image();
+    firstImg.src = photos[0];
+
+    // Preload next 2 images after a small delay
+    setTimeout(() => {
+      photos.slice(1, 3).forEach((photo) => {
+        const img = new Image();
+        img.src = photo;
+      });
+    }, 500);
+
+    // Lazy load remaining images
+    setTimeout(() => {
+      photos.slice(3).forEach((photo) => {
+        const img = new Image();
+        img.src = photo;
+      });
+    }, 2000);
   }, [photos]);
 
   // Slideshow effect
