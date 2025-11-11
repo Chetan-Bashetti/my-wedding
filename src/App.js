@@ -12,11 +12,16 @@ function App() {
 
   // Pre-wedding photos (placeholder - replace with actual photos)
   const photos = [
-    require('./photos/photo1.jpg'),
-    require('./photos/photo2.jpg'),
-    require('./photos/photo3.jpg'),
-    require('./photos/photo4.jpg'),
-    require('./photos/photo5.jpg')
+    require('./photos/pre_wedding/CN_M_1.jpg'),
+    require('./photos/pre_wedding/CN_M_2.jpg'),
+    require('./photos/pre_wedding/CN_M_3.jpg'),
+    require('./photos/pre_wedding/CN_M_4.jpg'),
+    require('./photos/pre_wedding/CN_M_5.jpg'),
+    require('./photos/pre_wedding/CN_M_6.jpg'),
+    require('./photos/pre_wedding/CN_M_7.jpg'),
+    require('./photos/pre_wedding/CN_M_8.jpg'),
+    require('./photos/pre_wedding/CN_M_9.jpg'),
+    require('./photos/pre_wedding/CN_M_10.jpg')
   ];
 
   // Slideshow effect
@@ -166,11 +171,11 @@ function App() {
               <div
                 key={index}
                 className={`slide ${index === currentSlide ? 'active' : ''}`}
-                style={{ backgroundImage: `url(${photo})` }}
               >
-                <div className="slide-placeholder">
-                  <span className="photo-icon">📷</span>
-                  <p>Pre-Wedding Photo {index + 1}</p>
+                <div className="slide-bg" style={{ backgroundImage: `url(${photo})` }}></div>
+                <div className="slide-glass-overlay"></div>
+                <div className="slide-content">
+                  <img src={photo} alt={`Pre-Wedding ${index + 1}`} className="slide-image" />
                 </div>
               </div>
             ))}
@@ -224,21 +229,73 @@ function App() {
           </div>
           <div className="events-timeline">
             <div className="event-card">
-              <div className="event-icon">💍</div>
+              <div className="event-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="28" fill="#D4AF37" opacity="0.2" />
+                  <path d="M10 35C10 35 12 30 15 28C18 26 22 26 22 26L24 32L20 34C20 34 18 36 16 38C14 40 12 42 10 42C8 42 8 40 8 38C8 36 9 36 10 35Z" fill="#FFB6A3" />
+                  <path d="M54 35C54 35 52 30 49 28C46 26 42 26 42 26L40 32L44 34C44 34 46 36 48 38C50 40 52 42 54 42C56 42 56 40 56 38C56 36 55 36 54 35Z" fill="#FFB6A3" />
+                  <ellipse cx="22" cy="28" rx="3" ry="2.5" fill="#D4AF37" />
+                  <circle cx="22" cy="27" r="1.5" fill="#FFD700" />
+                  <circle cx="22" cy="26.5" r="0.8" fill="#FF6B9D" />
+                  <ellipse cx="42" cy="28" rx="3" ry="2.5" fill="#D4AF37" />
+                  <circle cx="42" cy="27" r="1.5" fill="#FFD700" />
+                  <circle cx="42" cy="26.5" r="0.8" fill="#FF6B9D" />
+                  <path d="M25 28L30 26L35 28" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.6" />
+                  <path d="M39 28L34 26L29 28" stroke="#D4AF37" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.6" />
+                  <path d="M32 20C32 20 30 18 28 18C26 18 25 19 25 20.5C25 22 26 23 28 24L32 27L36 24C38 23 39 22 39 20.5C39 19 38 18 36 18C34 18 32 20 32 20Z" fill="#FF6B9D" opacity="0.8" />
+                </svg>
+              </div>
               <h3 className="event-name">Engagement Ceremony</h3>
               <p className="event-date">25th November, 2025</p>
               <p className="event-time">07:30 PM</p>
               <div className="event-decoration">❀</div>
             </div>
             <div className="event-card">
-              <div className="event-icon">✨</div>
+              <div className="event-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="28" fill="#FFD700" opacity="0.2" />
+                  <ellipse cx="32" cy="26" rx="14" ry="3" fill="#D4AF37" />
+                  <path d="M18 26C18 26 18 30 18 32C18 38 24 42 32 42C40 42 46 38 46 32C46 30 46 26 46 26" fill="#8B6914" />
+                  <path d="M18 26C18 26 18 28 18 30C18 36 24 40 32 40C40 40 46 36 46 30C46 28 46 26 46 26" fill="#A0812A" />
+                  <ellipse cx="32" cy="30" rx="12" ry="8" fill="#FFD700" />
+                  <ellipse cx="32" cy="28" rx="11" ry="6" fill="#FFEB3B" />
+                  <ellipse cx="32" cy="27" rx="9" ry="4" fill="#FFF176" />
+                  <circle cx="28" cy="25" r="1.5" fill="#FFD700" opacity="0.7" />
+                  <circle cx="36" cy="24" r="1.5" fill="#FFD700" opacity="0.7" />
+                  <circle cx="32" cy="23" r="1" fill="#FFA500" opacity="0.6" />
+                  <ellipse cx="30" cy="28" rx="2" ry="1.5" fill="#FFA500" opacity="0.4" />
+                  <ellipse cx="35" cy="29" rx="1.5" ry="1" fill="#FFA500" opacity="0.4" />
+                  <circle cx="20" cy="38" r="2" fill="#FFD700" opacity="0.5" />
+                  <circle cx="44" cy="38" r="2" fill="#FFD700" opacity="0.5" />
+                  <circle cx="24" cy="42" r="1.5" fill="#FFA500" opacity="0.4" />
+                  <circle cx="40" cy="42" r="1.5" fill="#FFA500" opacity="0.4" />
+                  <circle cx="16" cy="28" r="2" fill="#FF6B9D" opacity="0.6" />
+                  <circle cx="48" cy="28" r="2" fill="#FF6B9D" opacity="0.6" />
+                  <circle cx="18" cy="34" r="1.5" fill="#FF8B9D" opacity="0.5" />
+                  <circle cx="46" cy="34" r="1.5" fill="#FF8B9D" opacity="0.5" />
+                </svg>
+              </div>
               <h3 className="event-name">Haldi Ceremony</h3>
               <p className="event-date">25th November, 2025</p>
               <p className="event-time">08:30 PM</p>
               <div className="event-decoration">❀</div>
             </div>
             <div className="event-card featured">
-              <div className="event-icon">💑</div>
+              <div className="event-icon">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="28" fill="#FF6B6B" opacity="0.2" />
+                  <path d="M12 28L16 12L20 28H12Z" fill="#D4AF37" />
+                  <path d="M44 28L48 12L52 28H44Z" fill="#D4AF37" />
+                  <rect x="10" y="28" width="12" height="4" fill="#D4AF37" />
+                  <rect x="42" y="28" width="12" height="4" fill="#D4AF37" />
+                  <path d="M22 28L24 20L26 28H22Z" fill="#FF6B6B" />
+                  <path d="M38 28L40 20L42 28H38Z" fill="#FF6B6B" />
+                  <ellipse cx="32" cy="40" rx="18" ry="12" fill="#FF6B6B" opacity="0.3" />
+                  <path d="M20 32L32 48L44 32H20Z" fill="#D4AF37" />
+                  <path d="M28 36L32 44L36 36H28Z" fill="#FF6B6B" />
+                  <circle cx="32" cy="28" r="3" fill="#FFD700" />
+                </svg>
+              </div>
               <h3 className="event-name">Wedding Ceremony</h3>
               <p className="event-date">26th November, 2025</p>
               <p className="event-time">12:30 PM</p>
@@ -256,7 +313,25 @@ function App() {
             <div className="decorative-line"></div>
           </div>
           <div className="venue-details">
-            <div className="venue-icon">📍</div>
+            <div className="venue-icon">
+              <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="28" fill="#D4AF37" opacity="0.2" />
+                <rect x="28" y="38" width="8" height="16" fill="#8B4513" />
+                <path d="M12 24L16 10L20 24H12Z" fill="#D4AF37" />
+                <path d="M44 24L48 10L52 24H44Z" fill="#D4AF37" />
+                <rect x="10" y="24" width="12" height="3" fill="#D4AF37" />
+                <rect x="42" y="24" width="12" height="3" fill="#D4AF37" />
+                <path d="M8 38L56 38L52 27H12L8 38Z" fill="#FF6B6B" />
+                <rect x="6" y="38" width="52" height="4" rx="1" fill="#D4AF37" />
+                <circle cx="32" cy="20" r="4" fill="#FFD700" />
+                <path d="M22 30L24 27H28L24 30H22Z" fill="#FFD700" />
+                <path d="M36 30L40 27H44L40 30H36Z" fill="#FFD700" />
+                <rect x="14" y="30" width="2" height="8" fill="#8B4513" />
+                <rect x="20" y="30" width="2" height="8" fill="#8B4513" />
+                <rect x="42" y="30" width="2" height="8" fill="#8B4513" />
+                <rect x="48" y="30" width="2" height="8" fill="#8B4513" />
+              </svg>
+            </div>
             <h3 className="venue-name">Basaveshwar bhavan</h3>
             <p className="venue-address">
               Shubamastu Colony Siddharuda Matha Road, Subhavastu Colony,
