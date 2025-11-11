@@ -12,11 +12,11 @@ function App() {
 
   // Pre-wedding photos (placeholder - replace with actual photos)
   const photos = [
-    '/photos/photo1.jpg',
-    '/photos/photo2.jpg',
-    '/photos/photo3.jpg',
-    '/photos/photo4.jpg',
-    '/photos/photo5.jpg'
+    require('./photos/photo1.jpg'),
+    require('./photos/photo2.jpg'),
+    require('./photos/photo3.jpg'),
+    require('./photos/photo4.jpg'),
+    require('./photos/photo5.jpg')
   ];
 
   // Slideshow effect
@@ -97,7 +97,9 @@ function App() {
               <div className="person-card-wrapper">
                 <div className="person-card">
                   <div className="card-front">
-                    <div className="person-icon">👨‍💼</div>
+                    <div className="person-photo-container">
+                      <img src={require('./photos/groom.jpeg')} alt="Chetan" className="person-photo" />
+                    </div>
                     <h3 className="person-name">Chetan</h3>
                     <div className="person-details">
                       <p className="education">BE in Computer Science</p>
@@ -125,7 +127,9 @@ function App() {
               <div className="person-card-wrapper">
                 <div className="person-card">
                   <div className="card-front">
-                    <div className="person-icon">👰</div>
+                    <div className="person-photo-container">
+                      <img src={require('./photos/bride.jpeg')} alt="Neha" className="person-photo" />
+                    </div>
                     <h3 className="person-name">Neha</h3>
                     <div className="person-details">
                       <p className="education">BE in Electrical & Electronics</p>

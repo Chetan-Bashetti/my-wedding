@@ -482,7 +482,6 @@ body {
 	max-width: 350px;
 	opacity: 0;
 	animation: slideInFromSide 1s ease-out forwards;
-	perspective: 1000px;
 }
 
 .person.groom {
@@ -509,64 +508,149 @@ body {
 	position: relative;
 	width: 100%;
 	min-height: 450px;
+	perspective: 1000px;
 }
 
 .person-card {
 	position: relative;
 	width: 100%;
 	min-height: 450px;
-	transition: transform 0.8s;
+	height: 450px;
+	transition: transform 0.8s ease, -webkit-transform 0.8s ease;
+	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
+	-webkit-transform-origin: center center;
+	transform-origin: center center;
+	will-change: transform;
 }
 
 .person-card-wrapper:hover .person-card {
+	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
 }
 
 .card-front,
 .card-back {
 	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
+	height: 100%;
 	min-height: 450px;
 	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
-	background: rgba(255, 255, 255, 0.35);
-	backdrop-filter: blur(20px);
-	-webkit-backdrop-filter: blur(20px);
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
 	padding: 40px 30px;
 	border-radius: 25px;
-	box-shadow: 0 8px 32px rgba(28, 1, 1, 0.15),
-		inset 0 1px 1px rgba(255, 255, 255, 0.5);
 	text-align: center;
-	border: 1px solid rgba(255, 255, 255, 0.4);
 	overflow: hidden;
-	background-image: linear-gradient(
-			135deg,
-			rgba(255, 255, 255, 0.4) 0%,
-			rgba(255, 255, 255, 0.2) 100%
-		),
-		radial-gradient(circle at 20% 80%, rgba(28, 1, 1, 0.08) 0%, transparent 50%),
-		radial-gradient(
-			circle at 80% 20%,
-			rgba(212, 175, 55, 0.08) 0%,
-			transparent 50%
-		),
-		repeating-linear-gradient(
-			45deg,
-			transparent,
-			transparent 10px,
-			rgba(28, 1, 1, 0.02) 10px,
-			rgba(28, 1, 1, 0.02) 20px
-		);
-	background-size: cover, 200% 200%, 200% 200%, 20px 20px;
-	background-position: center, 0% 0%, 100% 100%, 0 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	transform-style: preserve-3d;
 }
 
-.card-front::before,
+.card-front {
+	z-index: 2;
+	transform: rotateY(0deg);
+}
+
+/* Groom card front with background */
+.person.groom .card-front {
+	box-shadow: 0 8px 32px rgba(28, 1, 1, 0.2),
+		inset 0 1px 1px rgba(255, 255, 255, 0.6);
+	border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.person.groom .card-front::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url('./photos/groom_bg.jpeg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	filter: blur(8px);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+.person.groom .card-front::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, 0.4) 0%,
+		rgba(255, 255, 255, 0.2) 50%,
+		rgba(212, 175, 55, 0.15) 100%
+	);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	z-index: 0;
+}
+
+/* Bride card front with background */
+.person.bride .card-front {
+	box-shadow: 0 8px 32px rgba(28, 1, 1, 0.2),
+		inset 0 1px 1px rgba(255, 255, 255, 0.6);
+	border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.person.bride .card-front::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url('./photos/bride_bg.jpeg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	filter: blur(8px);
+	opacity: 0.6;
+	z-index: -1;
+}
+
+.person.bride .card-front::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, 0.4) 0%,
+		rgba(255, 255, 255, 0.2) 50%,
+		rgba(212, 175, 55, 0.15) 100%
+	);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	z-index: 0;
+}
+
+/* Card back with glassmorphism */
+.card-back {
+	background: rgba(255, 255, 255, 0.4);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	box-shadow: 0 8px 32px rgba(28, 1, 1, 0.15),
+		inset 0 1px 1px rgba(255, 255, 255, 0.6);
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	transform: rotateY(180deg);
+	z-index: 1;
+}
+
 .card-back::before {
 	content: '';
 	position: absolute;
@@ -586,21 +670,6 @@ body {
 	z-index: 0;
 }
 
-.card-front::after {
-	content: '💕';
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	font-size: 2rem;
-	opacity: 0.15;
-	animation: pulse 3s ease-in-out infinite;
-	z-index: 0;
-}
-
-.card-back {
-	transform: rotateY(180deg);
-}
-
 .card-back::after {
 	content: '🌟';
 	position: absolute;
@@ -618,35 +687,56 @@ body {
 	z-index: 1;
 }
 
-.person-card-wrapper:hover .card-front::before,
 .person-card-wrapper:hover .card-back::before {
 	opacity: 1;
 }
 
 .flip-hint {
 	font-size: 0.9rem;
-	color: var(--coral);
+	color: var(--white);
 	margin-top: 15px;
 	font-style: italic;
-	opacity: 0.7;
+	opacity: 0.9;
 	animation: blink 2s ease-in-out infinite;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 @keyframes blink {
 	0%,
 	100% {
-		opacity: 0.7;
+		opacity: 0.9;
 	}
 	50% {
-		opacity: 0.3;
+		opacity: 0.5;
 	}
 }
 
-.person-icon {
-	font-size: 5rem;
-	margin-bottom: 20px;
+/* Person Photo Styling */
+.person-photo-container {
+	width: 150px;
+	height: 150px;
+	margin: 0 auto 25px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 5px solid rgba(255, 255, 255, 0.8);
+	box-shadow: 0 8px 32px rgba(28, 1, 1, 0.3),
+		inset 0 2px 4px rgba(255, 255, 255, 0.6);
 	animation: bounceIn 1s ease-out;
-	filter: drop-shadow(0 4px 8px rgba(28, 1, 1, 0.2));
+	position: relative;
+	z-index: 2;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.person-photo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	transition: transform 0.5s ease;
+}
+
+.person-card-wrapper:hover .person-photo {
+	transform: scale(1.1);
 }
 
 @keyframes bounceIn {
@@ -666,16 +756,16 @@ body {
 
 .person-name {
 	font-size: 2.5rem;
-	color: var(--coral);
+	color: var(--white);
 	margin-bottom: 20px;
 	font-family: 'Great Vibes', 'Brush Script MT', cursive;
 	font-weight: 600;
 	letter-spacing: 1px;
-	text-shadow: 0 2px 8px rgba(28, 1, 1, 0.15);
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .person-details {
-	color: var(--black);
+	color: var(--white);
 }
 
 .education,
@@ -684,6 +774,7 @@ body {
 	margin: 10px 0;
 	line-height: 1.6;
 	font-weight: 500;
+	text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7), 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
 .person-bio {
@@ -699,16 +790,17 @@ body {
 	font-size: 0.95rem;
 	margin: 10px 0;
 	line-height: 1.5;
-	color: var(--black);
+	color: var(--white);
 	padding: 8px 10px;
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(0, 0, 0, 0.4);
 	border-radius: 10px;
-	border-left: 3px solid var(--coral);
+	border-left: 3px solid var(--white);
 	transition: all 0.3s ease;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .bio-item:hover {
-	background: rgba(255, 255, 255, 0.5);
+	background: rgba(0, 0, 0, 0.6);
 	transform: translateX(5px);
 	border-left-color: var(--gold);
 }
@@ -1286,20 +1378,43 @@ body {
 
 	.person-card-wrapper {
 		min-height: 420px;
+		-webkit-perspective: 1000px;
+		perspective: 1000px;
 	}
 
 	.person-card {
 		min-height: 420px;
+		height: 420px;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
 	}
 
 	.card-front,
 	.card-back {
 		min-height: 420px;
+		height: 100%;
 		padding: 30px 20px;
+		-webkit-backface-visibility: hidden !important;
+		backface-visibility: hidden !important;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
 	}
 
-	.person-icon {
-		font-size: 4rem;
+	.card-front {
+		-webkit-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+
+	.card-back {
+		-webkit-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+	}
+
+	.person-photo-container {
+		width: 140px;
+		height: 140px;
+		margin: 0 auto 20px;
+		border: 4px solid rgba(255, 255, 255, 0.8);
 	}
 
 	.person-name {
@@ -1409,21 +1524,43 @@ body {
 
 	.person-card-wrapper {
 		min-height: 400px;
+		-webkit-perspective: 1000px;
+		perspective: 1000px;
 	}
 
 	.person-card {
 		min-height: 400px;
+		height: 400px;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
 	}
 
 	.card-front,
 	.card-back {
 		min-height: 400px;
+		height: 100%;
 		padding: 25px 15px;
+		-webkit-backface-visibility: hidden !important;
+		backface-visibility: hidden !important;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
 	}
 
-	.person-icon {
-		font-size: 3.5rem;
-		margin-bottom: 15px;
+	.card-front {
+		-webkit-transform: rotateY(0deg);
+		transform: rotateY(0deg);
+	}
+
+	.card-back {
+		-webkit-transform: rotateY(180deg);
+		transform: rotateY(180deg);
+	}
+
+	.person-photo-container {
+		width: 130px;
+		height: 130px;
+		margin: 0 auto 15px;
+		border: 3px solid rgba(255, 255, 255, 0.8);
 	}
 
 	.person-name {
