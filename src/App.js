@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './App.css';
 
 function App() {
@@ -10,8 +10,8 @@ function App() {
     seconds: 0
   });
 
-  // Pre-wedding photos (placeholder - replace with actual photos)
-  const photos = [
+  // Pre-wedding photos (memoized for performance)
+  const photos = useMemo(() => [
     require('./photos/pre_wedding/CN_M_1.jpg'),
     require('./photos/pre_wedding/CN_M_2.jpg'),
     require('./photos/pre_wedding/CN_M_3.jpg'),
@@ -22,7 +22,16 @@ function App() {
     require('./photos/pre_wedding/CN_M_8.jpg'),
     require('./photos/pre_wedding/CN_M_9.jpg'),
     require('./photos/pre_wedding/CN_M_10.jpg')
-  ];
+  ], []);
+
+  // Preload first 3 images for better performance
+  useEffect(() => {
+    const preloadImages = photos.slice(0, 3);
+    preloadImages.forEach((photo) => {
+      const img = new Image();
+      img.src = photo;
+    });
+  }, [photos]);
 
   // Slideshow effect
   useEffect(() => {
@@ -103,7 +112,12 @@ function App() {
                 <div className="person-card">
                   <div className="card-front">
                     <div className="person-photo-container">
-                      <img src={require('./photos/groom.jpeg')} alt="Chetan" className="person-photo" />
+                      <img
+                        src={require('./photos/groom.jpeg')}
+                        alt="Chetan"
+                        className="person-photo"
+                        loading="lazy"
+                      />
                     </div>
                     <h3 className="person-name">Chetan</h3>
                     <div className="person-details">
@@ -133,7 +147,12 @@ function App() {
                 <div className="person-card">
                   <div className="card-front">
                     <div className="person-photo-container">
-                      <img src={require('./photos/bride.jpeg')} alt="Neha" className="person-photo" />
+                      <img
+                        src={require('./photos/bride.jpeg')}
+                        alt="Neha"
+                        className="person-photo"
+                        loading="lazy"
+                      />
                     </div>
                     <h3 className="person-name">Neha</h3>
                     <div className="person-details">
@@ -175,7 +194,12 @@ function App() {
                 <div className="slide-bg" style={{ backgroundImage: `url(${photo})` }}></div>
                 <div className="slide-glass-overlay"></div>
                 <div className="slide-content">
-                  <img src={photo} alt={`Pre-Wedding ${index + 1}`} className="slide-image" />
+                  <img
+                    src={photo}
+                    alt={`Pre-Wedding ${index + 1}`}
+                    className="slide-image"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
                 </div>
               </div>
             ))}
